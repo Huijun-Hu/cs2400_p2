@@ -16,32 +16,47 @@ public final class LinkedStack<T> implements StackInterface<T>
    /** Adds a new entry to the top of this stack.
       @param newEntry  An object to be added to the stack. */
       public void push(T newEntry){
-
+         // create a new Node hold newEntry and linked to top Node
+         Node newNode = new Node(newEntry, topNode);
+         // reset top Node to new Node
+         topNode = newNode;
       } // end push
   
       /** Removes and returns this stack's top entry.
          @return  The object at the top of the stack. 
          @throws  EmptyStackException if the stack is empty before the operation. */
       public T pop(){
-
+         if (this.isEmpty()) 
+            throw new EmptyStackException();
+         // save data to return
+         T data = topNode.getData();
+         // remove top node
+         topNode = topNode.getNextNode();            
+         return data;
       } // end pop
       
       /** Retrieves this stack's top entry.
          @return  The object at the top of the stack.
          @throws  EmptyStackException if the stack is empty. */
       public T peek(){
-
+         if (this.isEmpty()) 
+            throw new EmptyStackException();
+         return topNode.getData();
       } // end peek
       
       /** Detects whether this stack is empty.
          @return  True if the stack is empty. */
       public boolean isEmpty(){
-
+         return (topNode == null);
       } // end isEmpty
       
       /** Removes all entries from this stack. */
       public void clear(){
-
+         // pop top Node until is null
+         while(topNode != null){
+            System.out.println(this.pop() + " is removed from the Stack");
+         }
+         System.out.println("Stack is clear.");
       } // end clear
 //  . . .
 
