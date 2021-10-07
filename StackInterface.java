@@ -1,7 +1,6 @@
 /**
     An interface for the ADT stack.
     @author Huijun Hu
-    @author Jiyu Liu
     @version 1.0
 */
 public interface StackInterface<T>

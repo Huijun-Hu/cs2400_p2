@@ -4,8 +4,7 @@ import java.util.EmptyStackException;
    @author Huijun Hu
    @version 1.0
 */
-public final class LinkedStack<T> implements StackInterface<T>
-{
+public final class LinkedStack<T> implements StackInterface<T>{
 	private Node topNode; // References the first node in the chain
   
    public LinkedStack()
