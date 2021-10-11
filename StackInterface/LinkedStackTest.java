@@ -4,13 +4,19 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-//import javax.print.event.PrintJobListener;
-//import java.lang.*;
+import java.util.Scanner;
 
 public class LinkedStackTest {
     public static void main(String[] args) {
-        System.out.println("\n...ConvertToPostfix with Linked Stack...");
-        System.out.println(convertToPostfix("a*b/(c-a)+d*e"));
+        System.out.println("\n...ConvertToPostfix with Linked Stack...\n");
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter an infix expression: ");
+        String in = sc.nextLine();
+
+        System.out.println("\nThe corresponding postfix expression is: \n" + convertToPostfix(in) + "\n");
+
     }
 
     public static String convertToPostfix(String infix){
