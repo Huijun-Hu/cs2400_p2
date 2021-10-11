@@ -49,15 +49,7 @@ public class LinkedStackTest {
                         operand1 = postfixHoldStack.pop();
                         postfix = operand1 + operand2 + Operator;
                         postfixHoldStack.push(postfix);
-                        }else if ( getPrecedence(currentChar) > getPrecedence(operatorStack.peek()) && notParentheses(operatorStack.peek()) ){
-                        // Operator = currentChar;
-                        // operand2 = postfixHoldStack.pop();
-                        // operand1 = postfixHoldStack.pop();
-                        // postfix = operand1 + operand2 + Operator;
-                        // postfixHoldStack.push(postfix);
-                        operatorStack.push(currentChar);
-                        }
-                        else{
+                        }else{
                             operatorStack.push(currentChar);
                         }
                     }else{
