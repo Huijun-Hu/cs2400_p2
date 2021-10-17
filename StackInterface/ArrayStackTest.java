@@ -2,15 +2,14 @@ package StackInterface;
 import java.util.Scanner;
 import java.lang.Math;
 
-import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
-
 public class ArrayStackTest {
     public static void main(String[] arg){
         System.out.println("\nWelcome to Postfix Evaluation...");
         System.out.print("\nEnter the postfix you want to evaluate: ");
         Scanner sc = new Scanner(System.in);
         String postfix = sc.nextLine();
-        System.out.printf("\nThe result is %d\n", evaluatePostfix(postfix));
+        System.out.printf("\nThe result is %d\n\n", evaluatePostfix(postfix));
+        sc.close();
     }
 
     static int evaluatePostfix(String postfix){
@@ -81,6 +80,7 @@ public class ArrayStackTest {
             match[i][1] = Integer.toString(val);
         }
 
+        sc.close();
         return match;
 
     } // end assignVariable
@@ -88,7 +88,7 @@ public class ArrayStackTest {
     static boolean isOperator(char charToCheck){
         return ((charToCheck == '+') || (charToCheck == '-') || (charToCheck == '*') || (charToCheck == '/') || (charToCheck == '^'));
     } // end isOperator
-
+        
     static int calculate(int a, int b, char c){
         switch(c){
             case '+':
