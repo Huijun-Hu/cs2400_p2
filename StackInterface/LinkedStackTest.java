@@ -1,11 +1,11 @@
 package StackInterface;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
 import java.util.Scanner;
-
+/**
+   An implementation of Linked Data Stacks to Convert an Infix Expression to a Postfix Expression
+   @author Huijun Hu
+   @version 1.0
+*/
 public class LinkedStackTest {
     public static void main(String[] args) {
         System.out.println("\n...ConvertToPostfix with Linked Stack...\n");
@@ -17,8 +17,12 @@ public class LinkedStackTest {
 
         System.out.println("\nThe corresponding postfix expression is: \n" + convertToPostfix(in) + "\n");
 
-    }
+    } // end main
 
+    /** To convert infix to a postfix expression
+     * @param infix expression to be convert
+     * @return simulated postfix
+     */
     public static String convertToPostfix(String infix){
 
         char Operator;
@@ -28,8 +32,6 @@ public class LinkedStackTest {
 
         LinkedStack<Character> operatorStack = new LinkedStack<>();
         LinkedStack<String> postfixHoldStack = new LinkedStack<>();
-
-        
 
         for(int c = 0; c < infix.length(); c++ ){
             if(infix.charAt(c) != ' '){
@@ -90,7 +92,12 @@ public class LinkedStackTest {
         
 
         return postfixHoldStack.peek();
-    }
+    } // end convertToPostfix
+
+    /** To identify the precedence of an binary operator
+     * @param operator binary operator
+     * @return precedence
+     */
     static int getPrecedence(char operator){
         switch (operator) {
             case '+':
@@ -108,23 +115,12 @@ public class LinkedStackTest {
         }
     } // end getPrecedence
 
+    /** To verify if a char not parentheses
+     * @param charToCheck char to be checked
+     * @return true if it is not parentheses, false otherwise
+     */
     static boolean notParentheses(char charToCheck){
         return charToCheck!='(';
     } // end notParentheses
-
-    /*
-    @Test
-    public void convertTest(){
-        String infix = "a*b/(c-a)+d*e";
-        String acutal = convertToPostfix(infix);
-        assertEquals("ab*ca-/de*", acutal);
-    }
-    @Test
-    public void testPush(){
-       LinkedStack<Character> testStack = new LinkedStack<>();
-       testStack.push('a');
-       assertEquals('a', testStack.peek());
-    }
-    */
 
 }
