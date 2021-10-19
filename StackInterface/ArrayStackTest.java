@@ -1,6 +1,11 @@
 package StackInterface;
 import java.util.Scanner;
 import java.lang.Math;
+/**
+   An implementation of Resizeable Array Stacks to Evaluate a Postfix Expression
+   @author Huijun Hu
+   @version 1.0
+*/
 
 public class ArrayStackTest {
     public static void main(String[] arg){
@@ -8,10 +13,13 @@ public class ArrayStackTest {
         System.out.print("\nEnter the postfix you want to evaluate: ");
         Scanner sc = new Scanner(System.in);
         String postfix = sc.nextLine();
-        System.out.printf("\nThe result is %d\n\n", evaluatePostfix(postfix));
-        sc.close();
-    }
+        System.out.printf("\nThe result is %d\n", evaluatePostfix(postfix));
+    } // end main
 
+    /** To evaluate value of a postfix expression
+     * @param postfix expression to be evaluated
+     * @return value of the postfix
+     */
     static int evaluatePostfix(String postfix){
 
         ResizeableArrayStack<Integer> valueStack = new ResizeableArrayStack<Integer>();
@@ -64,6 +72,9 @@ public class ArrayStackTest {
 
     } // end evaluatePostfix
 
+    /** Assign variables corresponding to their values
+     * @return A 2-D array with matching variables and values
+     */
     static String[][] assignVariable(){
 
         System.out.print("Enter the number of variable(s): ");
@@ -85,10 +96,20 @@ public class ArrayStackTest {
 
     } // end assignVariable
 
+    /** To verify if a char is an operator
+     * @param charToCheck binary operator
+     * @return whether if it is an operator
+     */
     static boolean isOperator(char charToCheck){
         return ((charToCheck == '+') || (charToCheck == '-') || (charToCheck == '*') || (charToCheck == '/') || (charToCheck == '^'));
     } // end isOperator
-        
+
+    /** Calculate an expression with two operands and one operator
+     * @param a operand one as an integer
+     * @param b operand two as an integer
+     * @param c binary operator
+     * @return the result of the expression
+     */
     static int calculate(int a, int b, char c){
         switch(c){
             case '+':

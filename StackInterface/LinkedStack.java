@@ -6,7 +6,6 @@ import java.util.EmptyStackException;
    @version 1.0
 */
 
-import org.junit.Test;
 public final class LinkedStack<T> implements StackInterface<T>{
 	private Node topNode; // References the first node in the chain
   
